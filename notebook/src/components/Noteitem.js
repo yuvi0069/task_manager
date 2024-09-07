@@ -17,7 +17,7 @@ export default function Noteitem(props) {
 
   return (
     <div ref={drag} className="col-md-3" style={{ opacity: isDragging ? 0.5 : 1 ,cursor:'move',width:'2000' }}>
-      <div className="card my-3">
+      <div className="card my-3" style={{width:"200"}}>
         <div className="card-body">
           <h5 className="card-title">{note.title}</h5>
           <p className="card-text">{note.desc}</p>

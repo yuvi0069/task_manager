@@ -1,6 +1,6 @@
 const jwt=require('jsonwebtoken');
 require('dotenv').config();
-const JWT_TOKEN=env.process.JWT_TOKEN;
+const JWT_TOKEN=process.env.JWT_TOKEN;
 async function usermiddleware(req,res,next){
     if (req.isAuthenticated && req.isAuthenticated()) {
         req.user = req.user; 

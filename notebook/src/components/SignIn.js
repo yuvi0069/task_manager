@@ -25,7 +25,7 @@ const SignIn = (props) => {
     };
 
     const handleGoogleSignUp = async (response) => {
-        window.open("http://127.0.0.1:5000/auth/google/callback","_self");
+        window.open("https://task-manager-6ttv.onrender.com/auth/google/callback","_self");
         
     };
 

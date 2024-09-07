@@ -1,5 +1,6 @@
 const mongoose=require ("mongoose");
-mongoose.connect("mongodb+srv://yuviabhi00:yuviabhi00@cluster0.264cezt.mongodb.net/");
+require("dotenv").config()
+mongoose.connect(process.env.URL);
 const UserSchema=new mongoose.Schema({
     googleId: {
         type: String,

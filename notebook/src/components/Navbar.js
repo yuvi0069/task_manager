@@ -13,7 +13,7 @@ export default function Navbar(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/user/getuser", {
+        const response = await fetch("https://task-manager-6ttv.onrender.com/getuser", {
           method: "POST",
           headers: {
             'Content-Type': "application/json",

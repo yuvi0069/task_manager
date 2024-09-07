@@ -1,7 +1,7 @@
 import Notecontext from "./notescontext";
 import { useState } from "react";
 const NotesState = (props) => {
-const host="http://127.0.0.1:5000";
+const host="https://task-manager-6ttv.onrender.com";
     const noteinitial = []
     const [notes,setNotes]=useState(noteinitial);
     const getNotes=async()=>{

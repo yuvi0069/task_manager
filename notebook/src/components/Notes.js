@@ -19,7 +19,7 @@ export default function Notes() {
     } else {
       navigate("/home");
     } 
-    // eslint-disable-next-line
+ 
   }, []);
 
   const ref = useRef(null);
@@ -41,13 +41,13 @@ export default function Notes() {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
 
-  // Filter notes based on tags
+
   const todoNotes = notes.filter(note => note.tag === 'todo');
   const inProgressNotes = notes.filter(note => note.tag === 'in-progress');
   const doneNotes = notes.filter(note => note.tag === 'done');
 
   const handleDrop = (note, newTag) => {
-    // Update the note's tag and call the edit function to update it in the backend
+  
     edit(note._id, note.title, note.desc, newTag);
   };
 
@@ -55,11 +55,11 @@ export default function Notes() {
     <DndProvider backend={HTML5Backend}>
       <Addnotes />
 
-      {/* Hidden button for triggering modal */}
+  
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
       </button>
 
-      {/* Modal for editing notes */}
+      
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -93,7 +93,7 @@ export default function Notes() {
         </div>
       </div>
 
-      {/* Display notes in three columns with drag-and-drop functionality */}
+     
       <div className="row my-3">
         <div className="col-md-4">
           <h3>To-Do</h3>

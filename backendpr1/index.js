@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const { User } = require("./table/db");  // Update the path as needed
+const { User } = require("./table/db");  
 const jwt = require('jsonwebtoken');
 const user = require("./routes/user");
 const notes = require("./routes/notes");
@@ -13,10 +13,10 @@ const app = express();
 require('dotenv').config()
 const JWT_TOKEN =process.env.JWT_TOKEN ;
 app.use(bodyParser.json());
-app.use(cors({origin: "http://localhost:3000", // Adjust to your frontend's URL
+app.use(cors({origin: "http://localhost:3000", 
     credentials: true}));
 
-// Session and Passport Initialization
+
 app.use(session({
     secret: 'yuviabhi012',
     resave: false,
@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Configure Passport to use Google OAuth
+
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_KEY,
@@ -61,13 +61,13 @@ app.get("/auth/google",passport.authenticate("google",{scope:["profile","email"]
 app.get(
     "/auth/google/callback",
     passport.authenticate("google", {
-        failureRedirect: "http://localhost:3000/signin", // Redirect to sign-in on failure
-        session: false, // Disable sessions if not needed
+        failureRedirect: "http://localhost:3000/signin",
+        session: false, 
     }),
     (req, res) => {
-        // Successful authentication
+       
         if (req.user) {
-            // Create JWT token
+            
             const payload = {
                 user: {
                     id: req.user.id,
@@ -76,10 +76,10 @@ app.get(
 
             const authtoken = jwt.sign(payload, JWT_TOKEN);
             console.log(authtoken);
-            // Redirect to frontend with token in query string
+           
             res.redirect(`http://localhost:3000/home?token=${authtoken}`);
         } else {
-            // Return failure response if something goes wrong after authentication
+            
             res.status(401).json({ success: false, msg: "Google sign-in failed" });
         }
     }

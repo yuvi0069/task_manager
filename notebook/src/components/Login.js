@@ -19,7 +19,7 @@ const Login = (props) => {
         const json = await response.json()
         console.log(json.success);
         if (json.success){
-            // Save the auth token and redirect
+          
             localStorage.setItem('token', json.authtoken); 
             navigate("/home");
 

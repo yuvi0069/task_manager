@@ -3,7 +3,7 @@ require('dotenv').config();
 const JWT_TOKEN=env.process.JWT_TOKEN;
 async function usermiddleware(req,res,next){
     if (req.isAuthenticated && req.isAuthenticated()) {
-        req.user = req.user;  // User object from Passport
+        req.user = req.user; 
         return next();
     }
 
